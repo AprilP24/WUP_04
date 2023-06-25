@@ -11,6 +11,7 @@ output:
 require(knitr)
 require(tidyverse)
 require(tigerstats)
+require(stats)
 thedata=read_csv("GSScsv.csv")
 ```
 
@@ -95,6 +96,38 @@ tukey_result
 ```
 
 Based on the chart above, LT High School and Graduate are the two degrees that are different from one another. In addition, High School is also different than Graduate. 
+
+
+```{r}
+# Assuming you have the "thedata" data frame with "DEGREE" and "WORDSUM" columns
+# Load the emeans package
+library(emmeans)
+
+# Perform one-way ANOVA
+result <- aov(WORDSUM~DEGREE, data = thedata)
+
+# perform Scheffe's post hoc test
+comparison <- emmeans(result, pairwise ~ DEGREE, adjust = "scheffe")
+
+# Print the comparison table
+print(comparison)
+```
+
+```{r}
+# Performing ANOVA
+model <- aov(WORDSUM ~ DEGREE, data = thedata)
+
+# Installing and loading the 'agricolae' package
+install.packages("agricolae")
+library(agricolae)
+
+# Performing Scheffé's test for pairwise comparisons
+scheffe_result <- LSD.test(model, "DEGREE", alpha = 0.05)
+
+# Viewing the test results
+scheffe_result
+```
+
 
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
