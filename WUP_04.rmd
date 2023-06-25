@@ -136,3 +136,5 @@ scheffe_result
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+
+The two different categories would be the LT High School graduate and the High School graduates since both of them don't run into the zero line. These two categories are the only two that would fall outside of that which we can see in the graph.  
